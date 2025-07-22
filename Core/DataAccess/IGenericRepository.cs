@@ -10,12 +10,12 @@ namespace Core.DataAccess
 {
     public interface IGenericRepository<T> where T : class, IEntity, new()
     {
-        Task<T> GetAsync(Expression<Func<T,bool>>filter);
+        Task<T>? GetAsync(Expression<Func<T,bool>>filter);
         IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null);
         Task<bool>AnyAsync(Expression<Func<T, bool>> filter);  //Kayıtlarda var mı yok mu kontrolü için.
         Task AddAsync(T entity);
         void Update(T entity);       //EntityFramework'te UpdateAsync yok, Update var.
-        void Delete(T entity);  // EntityFramework'te DeleteAsync yok, Delete var.
+        void Remove(T entity);  // EntityFramework'te DeleteAsync yok, Delete var.
 
 
 
