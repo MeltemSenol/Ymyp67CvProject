@@ -10,6 +10,6 @@ namespace Ymyp67CvProject.Entity.Concrete
     public sealed class Language:BaseEntity
     {
         public string Name { get; set; }
-        public string Level { get; set; }
+        public byte Level { get; set; }
     }
 }
