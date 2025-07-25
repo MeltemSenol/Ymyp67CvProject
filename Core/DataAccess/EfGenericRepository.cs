@@ -11,7 +11,7 @@ namespace Core.DataAccess
 {
     public abstract class EfGenericRepository<TEntity,TContext> : IGenericRepository<TEntity>
         where TEntity : class, IEntity, new()
-        where TContext : DbContext, new()
+        where TContext : DbContext
     {
         //private:sadece tanımlandığımız sınıf içinde erişilebilir.
         //protected: tanımlandığımız sınıf ve o sınıftan türetilen sınıflar içinde erişilebilir.

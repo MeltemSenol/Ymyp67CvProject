@@ -1,4 +1,4 @@
-﻿using Core.DataAccess;
+﻿using Core.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Ymyp67CvProject.Entity.Concrete;
 
-namespace Ymyp67CvProject.DataAccess.Repositories.Abstract
+namespace Ymyp67CvProject.Business.Abstract
 {
-    public interface IExperienceRepository:IGenericRepository<Experience>
+    public interface ICertificateService:IGenericService<Certificate>
     {
     }
 }

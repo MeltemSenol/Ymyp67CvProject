@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Ymyp67CvProject.Entity.Concrete;
 
-namespace Ymyp67CvProject.DataAccess.Repositories.Abstract
+namespace Ymyp67CvProject.DataAccess.Abstract
 {
-    public interface ICertificateRepository:IGenericRepository<Certificate>
+    public interface ILanguageRepository:IGenericRepository<Language>
     {
     }
 }

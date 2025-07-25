@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entities.UnitOfWorks
+namespace Core.Utilities.Results
 {
-    public interface IUnitOfWork
+    public interface IDataResult<T>: IResult
     {
-        Task CommitAsync();
-        void Commit();
+        T Data { get; }
+    
     }
 }
