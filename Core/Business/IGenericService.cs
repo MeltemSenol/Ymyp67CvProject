@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 
 namespace Core.Business
 {
-    public interface IGenericService<T> where T : class,IEntity,new()
+    public interface IGenericService<TEntity,TResponse,TCreate,TUpdate,TDetail> 
+        where TEntity: BaseEntity,new()
+        where TResponse:class,IResponseDto
+        where TCreate:class,ICreateDto
+        where TUpdate:class,IUpdateDto
+        where TDetail:class, IDetailDto
+
     {
 
-        Task<IDataResult<T>> AddAsync(T entity);
-        Task<IResult> UpdateAsync(T entity);
+        Task<IDataResult<TResponse>> AddAsync(TCreate dto);
+        Task<IResult> UpdateAsync(TUpdate dto);
         Task <IResult>RemoveAsync(Guid id);
-        Task<IDataResult<T>> GetByIdAsync(Guid id);
-        Task<IDataResult<IEnumerable<T>>> GetAllAsync();
+        Task<IDataResult<TResponse>> GetByIdAsync(Guid id);
+        Task<IDataResult<IEnumerable<TResponse>>> GetAllAsync();
 
     }
 }

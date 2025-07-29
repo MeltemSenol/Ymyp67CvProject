@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ymyp67CvProject.Entity.Concrete;
+using Ymyp67CvProject.Entity.Dtos.About;
 
 namespace Ymyp67CvProject.Business.Abstract
 {
-    public interface IAboutService:IGenericService<About>
+    public interface IAboutService:IGenericService<About,AboutResponseDto,
+        AboutCreateRequestDto,AboutUpdateRequestDto,AboutDetailResponseDto>
     {
-        //Ekstradan sadece certificate'i ilgilendiren bir metot ekliyoruz.
-        Task<IDataResult<IEnumerable<Certificate>>> GetCertificatesByOrganisationAsync();
-
+        
     }
 }

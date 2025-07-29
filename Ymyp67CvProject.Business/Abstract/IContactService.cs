@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ymyp67CvProject.Entity.Concrete;
+using Ymyp67CvProject.Entity.Dtos.Contact;
 
 namespace Ymyp67CvProject.Business.Abstract
 {
-    public interface IContactService:IGenericService<Contact>
+    public interface IContactService:IGenericService<Contact,
+        ContactReponseDto,ContactCreateRequestDto,ContactUpdateRequestDto,ContactDetailResponseDto>
     {
         //Sadece contact ile ilgili ekstra bir metot ekliyoruz.
         Task<IDataResult<IEnumerable<Contact>>> GetContactListByCityAsync();
