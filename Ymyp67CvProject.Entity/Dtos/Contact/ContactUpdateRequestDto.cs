@@ -2,7 +2,7 @@
 
 namespace Ymyp67CvProject.Entity.Dtos.Contact
 {
-    public sealed record ContactUpdateDto(
+    public sealed record ContactUpdateRequestDto(
         Guid id,
         string Address,
         string City,

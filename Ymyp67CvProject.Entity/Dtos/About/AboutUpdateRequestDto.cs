@@ -2,7 +2,7 @@
 
 namespace Ymyp67CvProject.Entity.Dtos.About
 {
-    public sealed record AboutUpdateDto(
+    public sealed record AboutUpdateRequestDto(
        Guid Id,
        string Description,
        byte Order,
