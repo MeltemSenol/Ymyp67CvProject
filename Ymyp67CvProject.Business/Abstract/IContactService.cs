@@ -14,6 +14,6 @@ namespace Ymyp67CvProject.Business.Abstract
         ContactReponseDto,ContactCreateRequestDto,ContactUpdateRequestDto,ContactDetailResponseDto>
     {
         //Sadece contact ile ilgili ekstra bir metot ekliyoruz.
-        Task<IDataResult<IEnumerable<Contact>>> GetContactListByCityAsync();
+        Task<IDataResult<IEnumerable<ContactReponseDto>>> GetContactListByCityAsync(string city);
     }
 }

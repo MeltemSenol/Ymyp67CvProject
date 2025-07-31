@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ymyp67CvProject.Business.Abstract;
+using Ymyp67CvProject.Business.Constants;
 using Ymyp67CvProject.DataAccess.Abstract;
 using Ymyp67CvProject.Entity.Concrete;
 using Ymyp67CvProject.Entity.Dtos.About;
@@ -37,7 +38,7 @@ namespace Ymyp67CvProject.Business.Concrete
                 await _unitOfWork.CommitAsync();
 
                 var response=_mapper.Map<AboutResponseDto>(about);
-               return new SuccessDataResult<AboutResponseDto>(response, "About information added successfully.");
+               return new SuccessDataResult<AboutResponseDto>(response, ResultMessages.SuccessAboutCreated);
             }
             catch (Exception e)
             {
@@ -52,7 +53,7 @@ namespace Ymyp67CvProject.Business.Concrete
                 about.UpdateAt = DateTime.Now;
                 _aboutRepository.Update(about); 
                 await _unitOfWork.CommitAsync();
-                return new SuccessResult("About updated successfully.");
+                return new SuccessResult(ResultMessages.SuccessAboutUpdated);
             }
             catch (Exception e)
             {
@@ -67,14 +68,14 @@ namespace Ymyp67CvProject.Business.Concrete
                 var about = await _aboutRepository.GetAsync(a=>a.Id==id);
                 if(about is null)
                 {
-                    return new ErrorResult("About not found.");
+                    return new ErrorResult(ResultMessages.ErrorAboutGet);
                 }
                 about.UpdateAt = DateTime.Now;
                 about.IsDeleted = true; 
                 about.IsActive = false; 
                 _aboutRepository.Update(about);
                 await _unitOfWork.CommitAsync();
-                return new SuccessResult("About removed successfully.");
+                return new SuccessResult(ResultMessages.SuccessAboutDeleted);
             }
             catch (Exception e)
             {
@@ -88,10 +89,10 @@ namespace Ymyp67CvProject.Business.Concrete
                 var about = await _aboutRepository.GetAsync(a => a.Id == id);
                 if (about is null)
                 {
-                    return new ErrorDataResult<AboutResponseDto>("About not found.");
+                    return new ErrorDataResult<AboutResponseDto>(ResultMessages.ErrorAboutGet);
                 }
                 var response = _mapper.Map<AboutResponseDto>(about);
-                return new SuccessDataResult<AboutResponseDto>(response,"About get successfully.");
+                return new SuccessDataResult<AboutResponseDto>(response,ResultMessages.SuccessGet);
             }
             catch (Exception e)
             {
@@ -106,10 +107,10 @@ namespace Ymyp67CvProject.Business.Concrete
                 var abouts=await _aboutRepository.GetAll(a=>!a.IsDeleted).ToListAsync();
                 if (abouts is null)
                 {
-                    return new ErrorDataResult<IEnumerable<AboutResponseDto>>("About list not found.");
+                    return new ErrorDataResult<IEnumerable<AboutResponseDto>>(ResultMessages.ErrorAboutListed);
                 }
                 var dtos= _mapper.Map<IEnumerable<AboutResponseDto>>(abouts);
-                return new SuccessDataResult<IEnumerable<AboutResponseDto>>(dtos,"About list get successfully.");
+                return new SuccessDataResult<IEnumerable<AboutResponseDto>>(dtos,ResultMessages.SuccessListed);
             }
             catch (Exception e)
             {

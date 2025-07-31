@@ -14,7 +14,7 @@ namespace Ymyp67CvProject.Business.Abstract
         CertificateCreateRequestDto,CertificateUpdateRequestDto,CertificateDetailResponseDto>
     {
         //Ekstradan sadece certificate'i ilgilendiren bir metot ekliyoruz.
-        Task<IDataResult<IEnumerable<Certificate>>> GetCertificatesByOrganisationAsync();
+        Task<IDataResult<IEnumerable<CertificateResponseDto>>> GetCertificatesByOrganisationAsync(string organisation);
 
     }
 }
