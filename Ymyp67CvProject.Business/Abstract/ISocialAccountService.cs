@@ -13,7 +13,7 @@ namespace Ymyp67CvProject.Business.Abstract
     public interface ISocialAccountService:IGenericService<SocialAccount,SocialAccountResponseDto,
         SocialAccountCreateRequestDto,SocialAccountUpdateRequestDto,SocialAccountDetailResponseDto>
     {
-        Task<IDataResult<SocialAccount>> GetSocialAccountByNameAsync();
-        Task<IDataResult<IEnumerable<SocialAccount>>> GetSocialAccountsByUserNameAsync();
+        Task<IDataResult<SocialAccountResponseDto>> GetSocialAccountByNameAsync(string platform);
+        Task<IDataResult<IEnumerable<SocialAccountResponseDto>>> GetSocialAccountsByUserNameAsync(string userName);
     }
 }

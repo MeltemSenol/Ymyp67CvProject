@@ -10,7 +10,7 @@ using Ymyp67CvProject.Entity.Concrete;
 
 namespace Ymyp67CvProject.DataAccess.Concrete.EntityFramework
 {
-    public class EfSocialAccountRepository : EfGenericRepository<SocialAccount, Ymyp67CvProjectDbContext>, ISocialAccount
+    public class EfSocialAccountRepository : EfGenericRepository<SocialAccount, Ymyp67CvProjectDbContext>, ISocialAccountRepository
     {
         public EfSocialAccountRepository(Ymyp67CvProjectDbContext context) : base(context)
         {

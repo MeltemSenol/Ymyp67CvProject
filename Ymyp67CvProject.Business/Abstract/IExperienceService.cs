@@ -14,6 +14,6 @@ namespace Ymyp67CvProject.Business.Abstract
         ExperienceCreateRequestDto,ExperienceUpdateRequestDto,
         ExperienceDetailResponseDto>
     {
-        Task<IDataResult<IEnumerable<Experience>>>GetExperiencesByCompanyAsync(string company);
+        Task<IDataResult<IEnumerable<ExperienceResponseDto>>>GetExperiencesByCompanyAsync(string company);
     }
 }

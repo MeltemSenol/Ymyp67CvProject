@@ -14,7 +14,7 @@ namespace Ymyp67CvProject.Business.Abstract
         LanguageCreateRequestDto,LanguageUpdateRequestDto,LanguageDetailResponseDto>
     {
         
-        Task<IDataResult<IEnumerable<Language>>> GetLanguagesGratherLevelAsync(byte level);
+        Task<IDataResult<IEnumerable<LanguageResponseDto>>> GetLanguagesGratherLevelAsync(byte level);
         
     }
 }

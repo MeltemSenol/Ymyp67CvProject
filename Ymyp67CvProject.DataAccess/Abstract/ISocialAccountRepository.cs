@@ -8,7 +8,7 @@ using Ymyp67CvProject.Entity.Concrete;
 
 namespace Ymyp67CvProject.DataAccess.Abstract
 {
-    public interface ISocialAccount:IGenericRepository<SocialAccount>
+    public interface ISocialAccountRepository:IGenericRepository<SocialAccount>
     {
     }
 }
