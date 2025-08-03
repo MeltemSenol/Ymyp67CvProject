@@ -103,7 +103,7 @@ namespace Ymyp67CvProject.Business.Concrete
         {
             try
             {
-                var education=await _educationRepository.GetAll(e => !e.IsDeleted).ToListAsync();
+                var education=await _educationRepository.GetAll(e => !e.IsDeleted).OrderByDescending(e=>e.StartDate).ToListAsync();
                 if (education == null)
                 {
                     return new ErrorDataResult<IEnumerable<EducationResponseDto>>(ResultMessages.ErrorListed);

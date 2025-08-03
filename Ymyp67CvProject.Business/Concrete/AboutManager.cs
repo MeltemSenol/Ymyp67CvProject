@@ -104,7 +104,7 @@ namespace Ymyp67CvProject.Business.Concrete
         {
             try
             {
-                var abouts=await _aboutRepository.GetAll(a=>!a.IsDeleted).ToListAsync();
+                var abouts=await _aboutRepository.GetAll(a=>!a.IsDeleted).OrderBy(a=>a.Order).ToListAsync(); //Order kolonuna göre sıraladık. hangi paragraf önce yazılacaksa ona göre sıralama yapıldı.
                 if (abouts is null)
                 {
                     return new ErrorDataResult<IEnumerable<AboutResponseDto>>(ResultMessages.ErrorAboutListed);

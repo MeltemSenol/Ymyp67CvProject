@@ -104,7 +104,7 @@ namespace Ymyp67CvProject.Business.Concrete
         {
             try
             {
-                var interests = await _interestRepository.GetAll(i => !i.IsDeleted).ToListAsync();
+                var interests = await _interestRepository.GetAll(i => !i.IsDeleted).OrderBy(i=>i.Order).ToListAsync(); //Order kolonuna göre sıraladık. hangi ilgi alanı önce yazılacaksa ona göre sıralama yapıldı.
                 if (interests == null)
                 {
                     return new ErrorDataResult<IEnumerable<InterestResponseDto>>(ResultMessages.ErrorListed);

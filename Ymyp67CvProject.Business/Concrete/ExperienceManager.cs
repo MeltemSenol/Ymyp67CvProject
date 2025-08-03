@@ -103,7 +103,7 @@ namespace Ymyp67CvProject.Business.Concrete
         {
             try
             {
-                var experiences= await _experienceRepository.GetAll(e=>!e.IsDeleted).ToListAsync();
+                var experiences= await _experienceRepository.GetAll(e=>!e.IsDeleted).OrderByDescending(e=>e.StartDate).ToListAsync(); //En son deneyim en üstte olacak şekilde sıraladık.
                 if (experiences == null)
                 {
                     return new ErrorDataResult<IEnumerable<ExperienceResponseDto>>(ResultMessages.ErrorListed);
@@ -122,7 +122,7 @@ namespace Ymyp67CvProject.Business.Concrete
         {
             try
             {
-                var experiences=await _experienceRepository.GetAll(e => !e.IsDeleted && e.Company == company).ToListAsync();
+                var experiences=await _experienceRepository.GetAll(e => !e.IsDeleted && e.Company == company).OrderByDescending(e=>e.StartDate).ToListAsync();
                 if (experiences == null) 
                 {
                     return new ErrorDataResult<IEnumerable<ExperienceResponseDto>>(ResultMessages.ErrorListed);
