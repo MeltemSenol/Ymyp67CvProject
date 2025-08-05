@@ -29,5 +29,9 @@ namespace Ymyp67CvProject.Business.Constants
         public static string ErrorDeleted = "Silme işlemi başarısız.";
         public static string ErrorListed = "Listeleme işlemi başarısız.";
         public static string ErrorGet = "Getirme işlemi başarısız.";
+
+        public static string IsTrue = "Evet";
+        public static string IsFalse = "Hayır";
+
     }
 }

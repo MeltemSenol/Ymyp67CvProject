@@ -33,7 +33,7 @@ namespace Ymyp67CvProject.Business.Mappers.AutoMapper
             CreateMap<CertificateCreateRequestDto,Certificate >();
             CreateMap<CertificateUpdateRequestDto,Certificate >();
 
-            CreateMap<Contact, ContactReponseDto>();
+            CreateMap<Contact, ContactResponseDto>();
             CreateMap<Contact, ContactDetailResponseDto>();
             CreateMap<ContactCreateRequestDto, Contact>();
             CreateMap<ContactUpdateRequestDto,Contact >();

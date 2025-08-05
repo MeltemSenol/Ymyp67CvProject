@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ymyp67CvProject.DataAccess.Context;
 
@@ -11,9 +12,11 @@ using Ymyp67CvProject.DataAccess.Context;
 namespace Ymyp67CvProject.DataAccess.Migrations
 {
     [DbContext(typeof(Ymyp67CvProjectDbContext))]
-    partial class Ymyp67CvProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250803202102_conctactConfiguration")]
+    partial class conctactConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

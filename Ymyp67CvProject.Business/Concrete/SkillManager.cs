@@ -139,7 +139,7 @@ namespace Ymyp67CvProject.Business.Concrete
             }
         }
 
-        public async Task<IDataResult<IEnumerable<SkillResponseDto>>> GetSkillsToolsAsync()
+        public async Task<IDataResult<IEnumerable<SkillResponseDto>>> GetWorkflowsAsync()
         {
             try
             {

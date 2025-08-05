@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ymyp67CvProject.Entity.Dtos.Contact
 {
-    public sealed record ContactReponseDto(
+    public sealed record ContactResponseDto(
         Guid id,
         string Address,
         string City,

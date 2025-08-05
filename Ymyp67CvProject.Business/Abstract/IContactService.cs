@@ -11,9 +11,9 @@ using Ymyp67CvProject.Entity.Dtos.Contact;
 namespace Ymyp67CvProject.Business.Abstract
 {
     public interface IContactService:IGenericService<Contact,
-        ContactReponseDto,ContactCreateRequestDto,ContactUpdateRequestDto,ContactDetailResponseDto>
+        ContactResponseDto,ContactCreateRequestDto,ContactUpdateRequestDto,ContactDetailResponseDto>
     {
         //Sadece contact ile ilgili ekstra bir metot ekliyoruz.
-        Task<IDataResult<IEnumerable<ContactReponseDto>>> GetContactListByCityAsync(string city);
+        Task<IDataResult<IEnumerable<ContactResponseDto>>> GetContactListByCityAsync(string city);
     }
 }

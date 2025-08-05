@@ -142,9 +142,9 @@ namespace Ymyp67CvProject.Business.Concrete
                 var education = await _educationRepository.AnyAsync(e => e.EndDate == null);
                 if (!education)
                 {
-                    return new SuccessResult(ResultMessages.ErrorGet);   //Devam ettiği okul yoksa da başarılı döner fakat hata mesajı devam ettiği okul yok anlamında ErrorGet olarak verilir.
+                    return new SuccessResult(ResultMessages.IsFalse);   //Devam ettiği okul yoksa da başarılı döner fakat hata mesajı devam ettiği okul yok anlamında ErrorGet olarak verilir.
                 }
-                return new SuccessResult(ResultMessages.SuccessGet);
+                return new SuccessResult(ResultMessages.IsTrue);
                 ;            }
             catch (Exception e)
             {

@@ -26,20 +26,20 @@ namespace Ymyp67CvProject.Business.Concrete
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-        public async Task<IDataResult<ContactReponseDto>> AddAsync(ContactCreateRequestDto dto)
+        public async Task<IDataResult<ContactResponseDto>> AddAsync(ContactCreateRequestDto dto)
         {
             try
             {
                 var contact = _mapper.Map<Contact>(dto);
                 await _contactRepository.AddAsync(contact);
                 await _unitOfWork.CommitAsync();
-                var response= _mapper.Map<ContactReponseDto>(contact);
-                return new SuccessDataResult<ContactReponseDto>(response, ResultMessages.SuccessCreated);
+                var response= _mapper.Map<ContactResponseDto>(contact);
+                return new SuccessDataResult<ContactResponseDto>(response, ResultMessages.SuccessCreated);
             }
             catch (Exception e)
             {
 
-                return new ErrorDataResult<ContactReponseDto>(e.Message);
+                return new ErrorDataResult<ContactResponseDto>(e.Message);
             }
         }
          public async Task<IResult> UpdateAsync(ContactUpdateRequestDto dto)
@@ -82,59 +82,59 @@ namespace Ymyp67CvProject.Business.Concrete
 
         }
 
-        public async Task<IDataResult<ContactReponseDto>> GetByIdAsync(Guid id)
+        public async Task<IDataResult<ContactResponseDto>> GetByIdAsync(Guid id)
         {
             try
             {
                 var contact = await _contactRepository.GetAsync(c => c.Id == id);
                 if(contact == null)
                 {
-                    return new ErrorDataResult<ContactReponseDto>(ResultMessages.ErrorGet);
+                    return new ErrorDataResult<ContactResponseDto>(ResultMessages.ErrorGet);
                 }
-                var response= _mapper.Map<ContactReponseDto>(contact);
-                return new SuccessDataResult<ContactReponseDto>(response, ResultMessages.SuccessGet);
+                var response= _mapper.Map<ContactResponseDto>(contact);
+                return new SuccessDataResult<ContactResponseDto>(response, ResultMessages.SuccessGet);
             }
             catch (Exception e)
             {
 
-                return new ErrorDataResult<ContactReponseDto>(e.Message);
+                return new ErrorDataResult<ContactResponseDto>(e.Message);
             }
         }
-        public async Task<IDataResult<IEnumerable<ContactReponseDto>>> GetAllAsync()
+        public async Task<IDataResult<IEnumerable<ContactResponseDto>>> GetAllAsync()
         {
             try
             {
                 var contacts= await _contactRepository.GetAll(c=>!c.IsDeleted).ToListAsync();
                 if (contacts == null)
                 {
-                    return new ErrorDataResult<IEnumerable<ContactReponseDto>>(ResultMessages.ErrorListed);
+                    return new ErrorDataResult<IEnumerable<ContactResponseDto>>(ResultMessages.ErrorListed);
                 }
-                var dtos = _mapper.Map<IEnumerable<ContactReponseDto>>(contacts);
-                return new SuccessDataResult<IEnumerable<ContactReponseDto>>(dtos, ResultMessages.SuccessListed);
+                var dtos = _mapper.Map<IEnumerable<ContactResponseDto>>(contacts);
+                return new SuccessDataResult<IEnumerable<ContactResponseDto>>(dtos, ResultMessages.SuccessListed);
             }
             catch (Exception e)
             {
 
-              return new ErrorDataResult<IEnumerable<ContactReponseDto>>(e.Message);
+              return new ErrorDataResult<IEnumerable<ContactResponseDto>>(e.Message);
             }
         }
 
-        public async Task<IDataResult<IEnumerable<ContactReponseDto>>> GetContactListByCityAsync(string city)
+        public async Task<IDataResult<IEnumerable<ContactResponseDto>>> GetContactListByCityAsync(string city)
         {
             try
             {
                 var contacts = await _contactRepository.GetAll(c =>!c.IsDeleted && c.City == city).ToListAsync();
                 if(contacts == null)
                 {
-                    return new ErrorDataResult<IEnumerable<ContactReponseDto>>(ResultMessages.ErrorListed);
+                    return new ErrorDataResult<IEnumerable<ContactResponseDto>>(ResultMessages.ErrorListed);
                 }
-                var dtos = _mapper.Map<IEnumerable<ContactReponseDto>>(contacts);
-                return new SuccessDataResult<IEnumerable<ContactReponseDto>>(dtos, ResultMessages.SuccessListed);
+                var dtos = _mapper.Map<IEnumerable<ContactResponseDto>>(contacts);
+                return new SuccessDataResult<IEnumerable<ContactResponseDto>>(dtos, ResultMessages.SuccessListed);
             }
             catch (Exception e)
             {
 
-              return new ErrorDataResult<IEnumerable<ContactReponseDto>>(e.Message);
+              return new ErrorDataResult<IEnumerable<ContactResponseDto>>(e.Message);
             }
         }
 

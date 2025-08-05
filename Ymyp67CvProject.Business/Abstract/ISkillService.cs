@@ -14,6 +14,6 @@ namespace Ymyp67CvProject.Business.Abstract
         SkillUpdateRequestDto,SkillDetailResponseDto>
     {
         Task<IDataResult<IEnumerable<SkillResponseDto>>> GetSkillsProgramLanguageAsync();
-        Task<IDataResult<IEnumerable<SkillResponseDto>>> GetSkillsToolsAsync();
+        Task<IDataResult<IEnumerable<SkillResponseDto>>> GetWorkflowsAsync();
     }
 }

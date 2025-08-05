@@ -23,7 +23,7 @@ namespace Ymyp67CvProject.Business.Concrete
         private readonly IUnitOfWork _unitOfWork;
         public AboutManager(IAboutRepository aboutRepository,IMapper mapper,IUnitOfWork unitOfWork)
         {
-            _aboutRepository = _aboutRepository;
+            _aboutRepository = aboutRepository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
